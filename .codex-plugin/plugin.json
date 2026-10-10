@@ -1,0 +1,41 @@
+{
+  "name": "codex-colab",
+  "version": "0.1.0",
+  "description": "Connect Codex to a Google Colab browser session through Google's official Colab MCP server.",
+  "author": {
+    "name": "codex-colab contributors",
+    "url": "https://github.com/thealepo/codex-colab"
+  },
+  "homepage": "https://github.com/thealepo/codex-colab",
+  "repository": "https://github.com/thealepo/codex-colab",
+  "license": "Apache-2.0",
+  "keywords": [
+    "codex",
+    "colab",
+    "google-colab",
+    "mcp",
+    "notebooks"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Codex Colab",
+    "shortDescription": "Work with a live Google Colab notebook",
+    "longDescription": "Inspect, edit, and execute cells in a live Google Colab browser session through Google's official open-source MCP server.",
+    "developerName": "codex-colab contributors",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read notebook cells",
+      "Edit notebook cells",
+      "Execute code in Colab"
+    ],
+    "websiteURL": "https://github.com/thealepo/codex-colab",
+    "defaultPrompt": [
+      "Connect to my Google Colab and summarize the notebook.",
+      "Run print(2 + 2) in Colab and show me the output.",
+      "Inspect my Colab notebook, fix the failing cell, and rerun it."
+    ],
+    "brandColor": "#F9AB00"
+  }
+}
+

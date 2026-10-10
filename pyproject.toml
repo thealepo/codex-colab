@@ -1,0 +1,59 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "codex-colab"
+version = "0.1.0"
+description = "A Codex compatibility adapter for Google's official Colab MCP server"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [{ name = "codex-colab contributors" }]
+keywords = ["codex", "colab", "mcp", "openai"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = ["mcp>=1.26.0,<2"]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.4,<10",
+  "pytest-asyncio>=1.2,<2",
+  "pytest-cov>=7,<8",
+  "ruff>=0.14,<1",
+]
+
+[project.scripts]
+codex-colab = "codex_colab.server:main"
+
+[project.urls]
+Homepage = "https://github.com/thealepo/codex-colab"
+Repository = "https://github.com/thealepo/codex-colab"
+Issues = "https://github.com/thealepo/codex-colab/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/codex_colab"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = ["integration: requires a real Google Colab browser session"]
+
+[tool.coverage.run]
+branch = true
+source = ["codex_colab"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
